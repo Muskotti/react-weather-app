@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Header from "./HeaderApp.js";
 import Citie from "./CitieInfo.js";
 import Dropdown from "./DropdownMenu.js"

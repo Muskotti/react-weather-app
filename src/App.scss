@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #262626;
+}
+
+.Header {
+  background-color: #ffffff;
+  width: 100%;
+  font-size: 23pt;
+  border: 2px solid #E6E6E6;
+  margin-bottom: 16px;
+}
+
+.card {
+  border: 2px solid #E6E6E6;
+  width: 80%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.container {
+  padding: 16px 24px;
+}
+
+.arrow-up {
+  width: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #262626;
+  transition: .5s;
+}
+
+.arrow-down {
+  width: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #262626;
+  transition: .5s;
+}
+
+.menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
