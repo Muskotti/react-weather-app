@@ -1,15 +1,20 @@
 import React from 'react';
 import './App.css';
-import Header from "./header.js";
-import Card from "./card";
+import Header from "./HeaderApp.js";
+import Citie from "./CitieInfo.js";
+import Dropdown from "./DropdownMenu.js"
 
-function App() {
-  return (
-    <div className="App">
-      <Header/>
-      <Card/>
-    </div>
-  );
+class App extends React.Component {
+
+  render() {
+    return (
+      <div className="App">
+        <Header/>
+        <Dropdown/>
+        <Citie/>
+      </div>
+    );
+  }
 }
 
 export default App;

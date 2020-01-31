@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-function App() {
+function CitieInfo() {
   return (
     <div className="card">
       <div className="container">
@@ -11,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default CitieInfo;

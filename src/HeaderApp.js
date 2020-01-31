@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-function App() {
+function HeaderApp() {
   return (
     <div className="Header">
       <p>Säätutka</p>
@@ -9,4 +9,4 @@ function App() {
   );
 }
 
-export default App;
+export default HeaderApp;

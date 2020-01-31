@@ -4,13 +4,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #262626;
 }
 
 .Header {
   background-color: #ffffff;
   width: 100%;
   font-size: 23pt;
-  color: #262626;
   border: 2px solid #E6E6E6;
   margin-bottom: 16px;
 }
@@ -20,8 +20,9 @@
   width: 80%;
   background-color: #ffffff;
   border-radius: 10px;
+  margin-bottom: 16px;
 }
 
 .container {
-  padding: 2px 16px;
+  padding: 16px 24px;
 }
