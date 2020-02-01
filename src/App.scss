@@ -17,7 +17,7 @@
 
 .card {
   border: 2px solid #E6E6E6;
-  width: 80%;
+  width: 90%;
   background-color: #ffffff;
   border-radius: 10px;
   margin-bottom: 16px;
@@ -47,6 +47,54 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.bigBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.topbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 13px;
+  margin-bottom: 20px;
+}
+
+.bottombox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+
+.leftItem {
+  text-align: left;
+}
+
+.rightItem {
+  text-align: right;
+}
+
+.iconBox {
+  display: flex;
+  flex-direction: row;
+  font-size: 26px;
+}
+
+.bigText {
+  font-size: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.smallText {
+  font-size: 13px; 
+  color: #70757A;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 
