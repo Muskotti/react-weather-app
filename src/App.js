@@ -4,7 +4,6 @@ import Header from "./HeaderApp.js";
 import Citie from "./CitieInfo.js";
 import Dropdown from "./DropdownMenu.js"
 import text from "./AppId.js";
-import CitieInfo from './CitieInfo.js';
 
 class App extends React.Component {
 
