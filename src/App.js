@@ -44,10 +44,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Dropdown cities={this.state.cities} activeSelection={this.state.activeSelection} setActive={this.setActiveSelection} />
-        {this.state.citiesInfo.map(item => (
-          <Citie key={item.id} data={item.citiesData}/>
-        ))}
+        <div style={{width: '90%'}}>
+          <Dropdown cities={this.state.cities} activeSelection={this.state.activeSelection} setActive={this.setActiveSelection} />
+          {this.state.citiesInfo.map(item => (
+            <Citie key={item.id} data={item.citiesData} />
+          ))}
+        </div>
       </div>
     );
   }

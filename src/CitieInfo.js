@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import SmallWeather from "./SmallWeather.js"
 
 class weatherData {
   constructor(info) {
@@ -16,12 +17,12 @@ class weatherData {
     if (info.rain) {
       let i = info.rain
       let json = JSON.stringify(i)
-      let result = json.replace("}","")
+      let result = json.replace("}", "")
       let final = result.split(":")
       pre = final[1]
     }
     this.pre = pre
-    this.image = "http://openweathermap.org/img/wn/"+ info.weather[0].icon +"@2x.png"
+    this.image = info.weather[0].icon
   }
 }
 
@@ -29,49 +30,50 @@ class CitieInfo extends React.Component {
 
   constructor(props) {
     super(props);
-    this.test = new weatherData(props.data.list[0])
+    let list = []
+    props.data.list.map(item => list.push(new weatherData(item)))
+    this.list = list
   }
 
   render() {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', width: '90%' }}>
-        <div className="card" style={{ width: '100%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div className="card">
           <div className="container">
             <div className="bigBox">
               <div className="topbox">
                 <div className="leftItem">
                   <p className="bigText">{this.props.data.city.name}</p>
-                  <p className="smallText">{this.test.desc.charAt(0).toUpperCase() + this.test.desc.slice(1)}</p>
+                  <p className="smallText">{this.list[0].desc.charAt(0).toUpperCase() + this.list[0].desc.slice(1)}</p>
                 </div>
                 <div className="iconBox">
-                  <img src={this.test.image} alt="weather"/>
-                  <p style={{ margin: 0 }}>{this.test.temp}&deg;C</p>
+                  <img src={"http://openweathermap.org/img/wn/" + this.list[0].image + "@2x.png"} alt="weather" />
+                  <p style={{ margin: 0 }}>{this.list[0].temp}&deg;C</p>
                 </div>
               </div>
               <div className="bottombox">
                 <div className="leftItem">
-                  <p className="bigText" style={{ fontSize: '15px' }}>{this.test.date}</p>
-                  <p className="smallText">{this.test.time}</p>
+                  <p className="bigText" style={{ fontSize: '15px' }}>{this.list[0].date}</p>
+                  <p className="smallText">{this.list[0].time}</p>
                 </div>
                 <div className="rightItem">
-                  <p className="smallText">Wind: {this.test.wind} m/s</p>
-                  <p className="smallText">Humidity: {this.test.humid} %</p>
-                  {this.test.pre ? (
-                    <p className="smallText">Precipitation (3 h): {this.test.pre} mm</p>
+                  <p className="smallText">Wind: {this.list[0].wind} m/s</p>
+                  <p className="smallText">Humidity: {this.list[0].humid} %</p>
+                  {this.list[0].pre ? (
+                    <p className="smallText">Precipitation (3 h): {this.list[0].pre} mm</p>
                   ) : (
-                    null
-                  )}
+                      null
+                    )}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <div className="card" style={{ marginRight: '12px' }}>asd</div>
-          <div className="card" style={{ marginRight: '12px' }}>qwe</div>
-          <div className="card" style={{ marginRight: '12px' }}>zxc</div>
-          <div className="card" style={{ marginRight: '12px' }}>fgh</div>
-          <div className="card">rty</div>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%'}}>
+          {this.list.slice(1, -1).map((data, index) => (
+            <SmallWeather key={index} data={data} last={false}/>
+          ))}
+          <SmallWeather data={this.list[this.list.length-1]} last={true}/>
         </div>
       </div>
     );
