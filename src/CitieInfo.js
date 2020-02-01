@@ -4,13 +4,14 @@ import './App.scss';
 class weatherData {
   constructor(info) {
     var moment = require('moment');
-    let desc = info.weather[0].description
-    let temp = info.main.temp
+
+    this.desc = info.weather[0].description
+    this.temp = info.main.temp
     let dateRaw = new Date(info.dt * 1000)
-    let date = moment(dateRaw).format("MMM Do");
-    let time = dateRaw.getHours() + ':00'
-    let wind = info.wind.speed
-    let humid = info.main.humidity
+    this.date = moment(dateRaw).format("MMM Do");
+    this.time = dateRaw.getHours() + ':00'
+    this.wind = info.wind.speed
+    this.humid = info.main.humidity
     let pre = null
     if (info.rain) {
       let i = info.rain
@@ -19,16 +20,8 @@ class weatherData {
       let final = result.split(":")
       pre = final[1]
     }
-    let image = "http://openweathermap.org/img/wn/"+ info.weather[0].icon +"@2x.png"
-
-    this.desc = desc
-    this.temp = temp
-    this.date = date
-    this.time = time
-    this.wind = wind
-    this.humid = humid
     this.pre = pre
-    this.image = image
+    this.image = "http://openweathermap.org/img/wn/"+ info.weather[0].icon +"@2x.png"
   }
 }
 
