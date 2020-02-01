@@ -13,14 +13,14 @@ class DropDown extends React.Component {
   }
 
   render() {
-    const cities = ['Tampere', 'Jyväskylä', 'Kuopio', 'Helsinki', 'Kaikki kaupungit']
-    const list = cities.map((name, i) => { return (<p key={i} onClick={()=> this.setState({activeSelection: name, showMenu: false})}>{name}</p>) })
+    const cities = this.props.cities
+    const list = cities.map((name, i) => { return (<p key={i} onClick={()=> this.setState({showMenu: false}, () => this.props.setActive(name))}>{name}</p>) })
 
     return (
       <div className="card" style={{ textAlign: "left", fontSize: 13, cursor: 'pointer' }} >
         <div className="container">
           <div className="menu" onClick={() => this.setState(prevState => ({ showMenu: !prevState.showMenu }))}>
-            <p style={{fontWeight: "bold"}}>{this.state.activeSelection}</p>
+            <p style={{fontWeight: "bold"}}>{this.props.activeSelection}</p>
             <div className={this.state.showMenu ? "arrow-up" : "arrow-down"} />
           </div>
           {this.state.showMenu ? (
