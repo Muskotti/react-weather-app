@@ -28,8 +28,6 @@ class App extends React.Component {
       let json = JSON.parse(save)
       let compareTime = new Date()
       let storageTime = new Date(json[0])
-      console.log(storageTime)
-      console.log(compareTime)
       if (storageTime.getTime() < compareTime.getTime()) {
         this.getDataRest()
       } else {
@@ -42,7 +40,7 @@ class App extends React.Component {
 
   setDataLocal = (json) => {
     json = json.slice(1)
-    this.setState({ citiesInfo: json[0], loading: false }, () => console.log(this.state))
+    this.setState({ citiesInfo: json[0], loading: false })
   }
 
   getDataRest = async () => {

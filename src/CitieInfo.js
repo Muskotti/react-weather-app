@@ -14,12 +14,19 @@ class weatherData {
     this.wind = info.wind.speed
     this.humid = info.main.humidity
     let pre = null
-    if (info.rain) {
-      let i = info.rain
+    if (info.rain || info.snow) {
+      let i = null
+      if(info.rain) {
+        i = info.rain
+      } else {
+        i = info.snow
+      }
       let json = JSON.stringify(i)
       let result = json.replace("}", "")
       let final = result.split(":")
       pre = final[1]
+    } else {
+      pre = 0
     }
     this.pre = pre
     this.image = info.weather[0].icon
@@ -59,11 +66,7 @@ class CitieInfo extends React.Component {
                 <div className="rightItem">
                   <p className="smallText">Wind: {this.list[0].wind} m/s</p>
                   <p className="smallText">Humidity: {this.list[0].humid} %</p>
-                  {this.list[0].pre ? (
-                    <p className="smallText">Precipitation (3 h): {this.list[0].pre} mm</p>
-                  ) : (
-                      null
-                    )}
+                  <p className="smallText">Precipitation (3 h): {this.list[0].pre} mm</p>
                 </div>
               </div>
             </div>
