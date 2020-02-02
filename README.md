@@ -2,10 +2,16 @@
 
 A weather app made with react using openweathermap.org api
 
+### Prerequisites
+
+* Yarn 1.21.1
+* Openweathermap.org API Key
+
 ### Installing
 
 * Clone the repostitory where ever you want to.
 * Run yarn install.
+* Get API key from Openweathermap.org
 * **Make a AppId.js in src folder**
 ```
 const text = '** API KEY HERE **'
