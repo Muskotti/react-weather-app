@@ -84,6 +84,7 @@ class App extends React.Component {
         <div className="App">
           <Header />
           <Dropdown cities={this.state.cities} activeSelection={this.state.activeSelection} setActive={this.setActiveSelection} />
+          <p>Loading ...</p>
         </div>
       )
     }
