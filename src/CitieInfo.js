@@ -43,7 +43,7 @@ class CitieInfo extends React.Component {
             <div className="bigBox">
               <div className="topbox">
                 <div className="leftItem">
-                  <p className="bigText">{this.props.data.city.name}</p>
+                  <p className="bigText">{this.props.name}</p>
                   <p className="smallText">{this.list[0].desc.charAt(0).toUpperCase() + this.list[0].desc.slice(1)}</p>
                 </div>
                 <div className="iconBox">
